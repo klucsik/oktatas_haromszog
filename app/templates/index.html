@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Háromszög - Automata oktatás</title>
+    </head>
+    <body>
+        <h1>Háromszög tipizálás {{id}}</h1>
+        <p>Ez az alkalmazás háromszögeket tipizál az oldalaik hosszmérete alapján.</p>
+        <p>Add meg a háromszög oldalainak hosszát az alábbi űrlapon és kattints a "Tipizálj!" gombra!</p>
+        <p>A program ezután visszaadja a háromszög típusát az alábbi lehetőségek közül:</p>
+        <ul>
+            <li>Nem háromszög</li>
+            <li>Szabályos háromszög</li>
+            <li>Egyenlő szárú háromszög</li>
+            <li>Általános háromszög</li>
+            <p>
+                <form action="" method="post" >
+                <p>{{ form.a_oldal.label }}:  {{ form.a_oldal(size=5) }}</p>
+                <p>{{ form.b_oldal.label }}:  {{ form.b_oldal(size=5) }}</p>
+                <p>{{ form.c_oldal.label }}:  {{ form.c_oldal(size=5) }}</p>
+                <p>{{ form.submit() }}</p>
+            </form>
+            </p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </ul>
+    </body>
+</html>

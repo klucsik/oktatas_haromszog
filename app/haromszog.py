@@ -1,0 +1,91 @@
+
+def calc_haromszog(version, a, b,c):
+    if version == 1:
+        return calc_1(a,b,c)
+
+def calc_1(a,b,c):
+    if a < 1:
+        return "Nem háromszög"
+    if b < 1:
+        return "Nem háromszög"
+    if c < 1:
+        return "Nem háromszög"
+    if a + b < c:
+        return "Nem háromszög"
+    if a + c < b:
+        return "Nem háromszög"
+    if b + c < a:
+        return "Nem háromszög"
+
+    if a == b and b == c:
+        return "Szabályos háromszög"
+
+    if a == b:
+        return "Egyenlő szárú háromszög"
+
+    if a == c:
+        return "Egyenlő szárú háromszög"
+
+    if c == b:
+        return "Egyenlő szárú háromszög"
+
+    return "Általános háromszög"
+
+
+def calc_2(a,b,c):
+    if a < 0: #!
+        return "Nem háromszög"
+    if b < 1:
+        return "Nem háromszög"
+    if c < 1:
+        return "Nem háromszög"
+    if a + b < c:
+        return "Nem háromszög"
+    if a + c < b:
+        return "Nem háromszög"
+    if b + c < a:
+        return "Nem háromszög"
+
+    if a == b and b == c:
+        return "Szabályos háromszög"
+
+    if a == b:
+        return "Egyelő szárú háromszög" #!
+
+    if a == c:
+        return "Egyenlő szárú háromszög"
+
+    if c == b:
+        return "Egyenlő szárú háromszög"
+
+    return "Általános háromszög"
+
+def calc_3(a,b,c):
+    if a < 1:
+        return "Nem háromszög"
+    if b < 1:
+        return "Nem háromszög"
+    if c < 1:
+        return "Nem háromszög"
+    if a + b < c:
+        return "Nem háromszög"
+    if a + c < b:
+        return "Nem háromszög"
+    if b + c < a:
+        return "Nem háromszög"
+
+    #!
+
+    if a == c: #!
+        return "Egyenlő szárú háromszög"
+
+    if a == c:
+        return "Egyenlő szárú háromszög"
+
+    if c == b:
+        return "Egyenlő szárú háromszög"
+    
+    if a == b and b == c: #!
+        return "Szabályos háromszög"
+
+    return "Általános háromszög"
