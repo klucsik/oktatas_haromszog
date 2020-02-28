@@ -62,10 +62,10 @@ def calc_2(a,b,c):
         return "Egyelő szárú háromszög" #!
 
     if a == c:
-        return "Egyenlő szárú háromszög"
+        return "Egyelő szárú háromszög" #!
 
     if c == b:
-        return "Egyenlő szárú háromszög"
+        return "Egyelő szárú háromszög" #!
 
     return "Általános háromszög"
 
