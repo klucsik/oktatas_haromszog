@@ -2,7 +2,7 @@
 def calc_haromszog(version, a, b,c):
     if type(a) is not int or type(b) is not int or type(c) is not int:
         return "érvénytelen adattípus, kérlek egész számot adj meg!"
-        
+
     if version == 1:
         return calc_1(a,b,c)
     if version == 2:
@@ -19,11 +19,11 @@ def calc_1(a,b,c):
         return "Nem háromszög"
     if c < 1:
         return "Nem háromszög"
-    if a + b < c:
+    if a + b <= c:
         return "Nem háromszög"
-    if a + c < b:
+    if a + c <= b:
         return "Nem háromszög"
-    if b + c < a:
+    if b + c <= a:
         return "Nem háromszög"
 
     if a == b and b == c:
@@ -48,11 +48,11 @@ def calc_2(a,b,c):
         return "Nem háromszög"
     if c < 1:
         return "Nem háromszög"
-    if a + b < c:
+    if a + b < c: #!
         return "Nem háromszög"
-    if a + c < b:
+    if a + c < b: #!
         return "Nem háromszög"
-    if b + c < a:
+    if b + c < a: #!
         return "Nem háromszög"
 
     if a == b and b == c:
@@ -76,11 +76,11 @@ def calc_3(a,b,c):
         return "Nem háromszög"
     if c < 1:
         return "Nem háromszög"
-    if a + b < c:
+    if a + b <= c:
         return "Nem háromszög"
-    if a + c < b:
+    if a + c <= b:
         return "Nem háromszög"
-    if b + c < a:
+    if b + c <= a:
         return "Nem háromszög"
 
     #!
