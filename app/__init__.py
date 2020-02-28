@@ -6,11 +6,15 @@ from app.haromszog import calc_haromszog
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'nemtalálszki'
 
+@app.route("/", methods=['GET', 'POST'])
+def root():
+    return redirect ("/1")
+
 
 @app.route("/<ver>", methods=['GET', 'POST'])
-@app.route("/", methods=['GET', 'POST'])
-def index(ver=1):
-    ver = int(ver)
+def index(ver):
+    if type(ver) is not int:
+        ver = int(ver)
     form = HaromszogForm()
     if form.is_submitted():
         a = form.a_oldal.data
