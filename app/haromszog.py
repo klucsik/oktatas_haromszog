@@ -4,9 +4,9 @@ def calc_haromszog(version, a, b,c):
         return "érvénytelen adattípus, kérlek egész számot adj meg!"
 
     if version == "1":
-        return calc_1(a,b,c)
-    if version == "2":
         return calc_2(a,b,c)
+    if version == "hp":
+        return calc_1(a,b,c)
     if version == "23":
         return calc_3(a,b,c)
     return "Érvénytelen kalkuláció verzió"
@@ -59,7 +59,7 @@ def calc_2(a,b,c):
         return "Szabályos háromszög"
 
     if a == b:
-        return "Egyelő szárú háromszög" #!
+        return "Egyelő szárú háromszög" #! Julinak speciálba :*
 
     if a == c:
         return "Egyelő szárú háromszög" #!
