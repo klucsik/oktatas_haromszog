@@ -10,14 +10,14 @@ app.config['SECRET_KEY'] = 'nemtalálszki'
 @app.route("/<ver>", methods=['GET', 'POST'])
 @app.route("/", methods=['GET', 'POST'])
 def index(ver=1):
-    
+    ver = int(ver)
     form = HaromszogForm()
     if form.is_submitted():
         a = form.a_oldal.data
         b = form.b_oldal.data
         c = form.c_oldal.data
-        print("a: " + str(a) +" b: " + str(b) +" c: " + str(c))
-        result=calc_haromszog(ver,a,b,c)
+        print("ver: "+ str(ver) + " a: " + str(a) +" b: " + str(b) +" c: " + str(c))
+        result = calc_haromszog(ver,a,b,c)
         flash(result)
         print(result)
         return redirect('/'+str(ver))
