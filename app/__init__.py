@@ -16,6 +16,8 @@ def index(ver):
 
     if ver == "666":
         return render_template("666.html")
+    if ver == "500":
+        return render_template("500.html")
 
     form = HaromszogForm()
     if form.is_submitted():
