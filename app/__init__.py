@@ -22,3 +22,7 @@ def index(ver=1):
         print(result)
         return redirect('/'+str(ver))
     return render_template("index.html", form=form, id=ver)
+
+@app.errorhandler(500)
+def internal_error(e):
+    return render_template('500.html'), 500
