@@ -9,7 +9,7 @@ def calc_haromszog(version, a, b,c):
         return calc_1(a,b,c)
     if version == "23":
         return calc_3(a,b,c)
-    return "Érvénytelen kalkuláció verzió"
+    return "Érvénytelen feladat végpont!"
 
 
 def calc_1(a,b,c):
