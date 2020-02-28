@@ -13,8 +13,10 @@ def root():
 
 @app.route("/<ver>", methods=['GET', 'POST'])
 def index(ver):
-    if type(ver) is not int:
-        ver = int(ver)
+
+    if ver == "666":
+        return render_template("666.html")
+
     form = HaromszogForm()
     if form.is_submitted():
         a = form.a_oldal.data
