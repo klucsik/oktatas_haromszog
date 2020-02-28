@@ -76,11 +76,11 @@ def calc_3(a,b,c):
         return "Nem háromszög"
     if c < 1:
         return "Nem háromszög"
-    if a + b < c:
+    if a + b <= c: #!
         return "Nem háromszög"
-    if a + c < b:
+    if a + c <= b: #!
         return "Nem háromszög"
-    if b + c < a:
+    if b + c <= a: #!
         return "Nem háromszög"
 
     #!
