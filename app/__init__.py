@@ -24,12 +24,35 @@ def index(ver):
         a = form.a_oldal.data
         b = form.b_oldal.data
         c = form.c_oldal.data
-        print("ver: "+ str(ver) + " a: " + str(a) +" b: " + str(b) +" c: " + str(c))
+
         result = calc_haromszog(ver,a,b,c)
         flash(result)
-        print(result)
+
+        print("api call: ver: "+ str(ver) + " a: " + str(a) +" b: " + str(b) +" c: " + str(c) +" -> "+ result)
+
         return redirect('/'+str(ver))
     return render_template("index.html", form=form, id=ver)
+
+@app.route("/api/tipizalj", methods=['POST'])
+def api():
+    ver = request.args.get('ver',"1")
+
+    if ver == "666":
+        return "rip and tear!"
+    try:
+        a = request.json['a_oldal']
+        b = request.json['b_oldal']
+        c = request.json['c_oldal']
+    except:
+        return "hibás kérés formátum!\n elvárt formátum: \n{\n\"a_oldal\": 1,\n\"b_oldal\": 2,\n\"c_oldal\": 1\n}"
+
+    result = calc_haromszog(ver,a,b,c)
+
+    print("api call: ver: "+ str(ver) + " a: " + str(a) +" b: " + str(b) +" c: " + str(c) +" -> "+ result)
+    return result
+        
+    
+
 
 @app.errorhandler(500)
 def internal_error(e):

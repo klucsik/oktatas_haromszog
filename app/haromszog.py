@@ -1,13 +1,17 @@
 
 def calc_haromszog(version, a, b,c):
+
+    if version == "4": #! nincs adattípus check
+        return calc_1(a,b,c) 
+
     if type(a) is not int or type(b) is not int or type(c) is not int:
         return "érvénytelen adattípus, kérlek egész számot adj meg!"
 
     if version == "1":
-        return calc_2(a,b,c)
-    if version == "hp":
         return calc_1(a,b,c)
-    if version == "23":
+    if version == "2":
+        return calc_2(a,b,c)
+    if version == "3":
         return calc_3(a,b,c)
     return "Érvénytelen feladat végpont!"
 
