@@ -19,7 +19,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: oktatas-3szog_svc
+                name: oktatas-3szog-svc
                 port:
                   number: 80
 
@@ -51,7 +51,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: oktatas-3szog_svc
+  name: oktatas-3szog-svc
   namespace: oktatas-3szog
 spec:
   ports:
