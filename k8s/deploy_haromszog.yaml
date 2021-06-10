@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: oktatas_3szog
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: oktatas_3szog
+  namespace: oktatas_3szog
+spec:
+  rules:
+    - host: 3szog.8tatas.klucsik.duckdns.org
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: oktatas_3szog_svc
+                port:
+                  number: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oktatas_3szog
+  namespace: oktatas_3szog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: backend
+      service: oktatas_3szog
+  template:
+    metadata:
+      labels:
+        type: backend
+        service: oktatas_3szog
+    spec:
+      containers:
+        - name: backend
+          image: klucsik.duckdns.org:5000/3szog_gyakorlo
+          imagePullPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: oktatas_3szog_svc
+  namespace: oktatas_3szog
+spec:
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    type: backend
+    service: oktatas_3szog
+
+---
