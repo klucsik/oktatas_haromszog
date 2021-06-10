@@ -12,7 +12,7 @@ metadata:
   namespace: oktatas-3szog
 spec:
   rules:
-    - host: 3szog.8tatas.klucsik.duckdns.org
+    - host: 3szog.8tas.klucsik.duckdns.org
       http:
         paths:
           - pathType: Prefix
