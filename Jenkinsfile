@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build docker image') {
       steps {
-        sh 'docker build --network=host -t klucsik.duckdns.org:5000/3szog_gyakorlo --dns=8.8.8.8 .'
+        sh 'docker build --network=host -t klucsik.duckdns.org:5000/3szog_gyakorlo .'
         sh 'docker push klucsik.duckdns.org:5000/3szog_gyakorlo'
       }
     }
