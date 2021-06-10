@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: oktatas_3szog
+  name: oktatas-3szog
 
 ---
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: oktatas_3szog
-  namespace: oktatas_3szog
+  name: oktatas-3szog
+  namespace: oktatas-3szog
 spec:
   rules:
     - host: 3szog.8tatas.klucsik.duckdns.org
@@ -19,7 +19,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: oktatas_3szog_svc
+                name: oktatas-3szog_svc
                 port:
                   number: 80
 
@@ -27,19 +27,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oktatas_3szog
-  namespace: oktatas_3szog
+  name: oktatas-3szog
+  namespace: oktatas-3szog
 spec:
   replicas: 1
   selector:
     matchLabels:
       type: backend
-      service: oktatas_3szog
+      service: oktatas-3szog
   template:
     metadata:
       labels:
         type: backend
-        service: oktatas_3szog
+        service: oktatas-3szog
     spec:
       containers:
         - name: backend
@@ -51,14 +51,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: oktatas_3szog_svc
-  namespace: oktatas_3szog
+  name: oktatas-3szog_svc
+  namespace: oktatas-3szog
 spec:
   ports:
     - port: 80
       targetPort: 5000
   selector:
     type: backend
-    service: oktatas_3szog
+    service: oktatas-3szog
 
 ---
