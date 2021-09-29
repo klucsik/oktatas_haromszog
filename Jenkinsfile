@@ -1,10 +1,17 @@
 pipeline {
-  agent any
+    agent {
+    kubernetes {
+      yamlFile 'deploy_agent.yaml'
+      defaultContainer 'docker'
+    }
+  }
   stages {
     stage('build docker image') {
       steps {
-        sh 'docker build --network=host -t klucsik.duckdns.org:5000/3szog_gyakorlo .'
-        sh 'docker push klucsik.duckdns.org:5000/3szog_gyakorlo'
+          sh 'docker buildx create  --driver kubernetes --name builder --node arm64node  --driver-opt replicas=1,nodeselector=kubernetes.io/arch=arm64 --use'
+          sh 'docker buildx create --append --driver kubernetes --name builder --node amd64node  --driver-opt replicas=1,nodeselector=kubernetes.io/arch=amd64 --use'
+          sh 'docker buildx build --platform linux/arm64,linux/amd64 --push -t ${IMAGEREPO}/3szog_gyakorlo .'
+
       }
     }
 
@@ -16,4 +23,8 @@ pipeline {
     }
 
   }
+
+    environment {
+      IMAGEREPO = 'registry.klucsik.fun'
+        }
 }

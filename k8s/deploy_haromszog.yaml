@@ -3,16 +3,17 @@ kind: Namespace
 metadata:
   name: oktatas-3szog
 
+
 ---
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: oktatas-3szog
+  name: oktatas-3szog-klucsikfun
   namespace: oktatas-3szog
 spec:
   rules:
-    - host: 3szog.8tatas.klucsik.duckdns.org
+    - host: 3szog.8tatas.klucsik.fun
       http:
         paths:
           - pathType: Prefix
@@ -43,7 +44,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: klucsik.duckdns.org:5000/3szog_gyakorlo
+          image: registry.klucsik.fun/3szog_gyakorlo
           imagePullPolicy: Always
 
 ---
