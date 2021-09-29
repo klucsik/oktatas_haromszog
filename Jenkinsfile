@@ -17,8 +17,10 @@ pipeline {
 
     stage('deploy on k8s') {
       steps {
-        sh 'kubectl apply -f k8s/deploy_haromszog.yaml'
-        sh 'kubectl rollout status deployment/oktatas-3szog --namespace=oktatas-3szog'
+        container(name: 'kubectl'){
+          sh 'kubectl apply -f k8s/deploy_haromszog.yaml'
+          sh 'kubectl rollout status deployment/oktatas-3szog --namespace=oktatas-3szog'
+        }
       }
     }
 
