@@ -13,7 +13,7 @@ metadata:
   namespace: oktatas-3szog
 spec:
   rules:
-    - host: 3szog.8tatas.klucsik.fun
+    - host: 3szog.8tas.klucsik.fun
       http:
         paths:
           - pathType: Prefix
